@@ -1,0 +1,41 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+    char s[105];
+    scanf("%s",s);
+    int i,lcase=0,ucase=0;
+    for(i=0;i<strlen(s);i++){
+        if(s[i]>=65 && s[i]<=90){
+            ucase++;
+        }
+        else if(s[i]>=97 && s[i]<=122){
+            lcase++;
+        }
+    }
+    //printf("%d %d\n",lcase,ucase);
+    if(lcase>=ucase){
+            //if(s[i]>=97 && s[i]<=122){
+        for(i=0;i<strlen(s);i++){
+                if(s[i]>=65 && s[i]<=90){
+            s[i]+=32;
+        }
+        }
+    }
+    //printf("%s\n",s);
+ 
+ 
+ 
+    else {
+            //if(s[i]>=65 && s[i]<=90){
+        for(i=0;i<strlen(s);i++){
+                if(s[i]>=97 && s[i]<=122){
+            s[i]-=32;
+        }
+    }
+    }
+ 
+        printf("%s\n",s);
+ 
+    return 0;
+}
