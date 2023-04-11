@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long double ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+vector < pair < ll, ll > > vp;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll u , v , a ,s; cin >> u >> v >> a >> s;
+        ll V = u * u - (2.0 * a * s);
+        V = sqrt(V);
+        if(V > v)
+            cout << "NO\n";
+        else
+            cout << "YES\n";
+
+
+    }
+}

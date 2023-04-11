@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+// sum = (sum + a[i] + MOD) % MOD;
+map < ll, ll > mp;
+
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        mp.clear();
+        ll n , m,k; cin >> n >> m >> k; ll admin = n + 1;
+        for(ll i = 1; i <= k; i++)
+        {
+            ll x; cin >> x;
+            if(x < admin)
+            {
+                mp[x]++;
+            }
+
+        }
+        set < ll > st;
+        for(auto i : mp)
+        {
+            if(i.second > 1)
+            {
+                st.insert(i.first);
+            }
+        }
+        cout << st.size() << ' ';
+        for(auto i : st)
+            cout << i << ' ';
+        cout << endl;
+        st.clear();
+    }
+
+
+
+
+
+
+
+}

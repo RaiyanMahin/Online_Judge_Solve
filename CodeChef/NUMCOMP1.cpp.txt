@@ -1,0 +1,43 @@
+// 30 pts
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define FIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+const ll N = 1e7 + 5;
+    //okay check new new vs code
+    vector<bool> vis(N,true);
+    void Sieve()
+    {
+    	for (ll i = 2; i*i < N; i ++)
+            {
+    		if (vis[i] == true)
+                    {
+                            for(ll j=i*i;j<N;j+=i)
+                                    vis[j] = false;
+    		}
+    	}
+            vis[1] = false;
+    }
+int main()
+{
+
+    FIO;
+    Sieve();
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n; cin >> n;
+        ll c = 1;
+        for(ll i = 3; i <= n; i += 2)
+        {
+            if(i * 2 > n and vis[i])
+                c++;
+
+        }
+        cout << c << endl;
+
+
+
+
+    }
+}

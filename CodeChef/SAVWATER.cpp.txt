@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll h ,x, y,c; cin >> h >> x >> y >> c;
+        ll o = x + (ll) floor(y / 2); o *= h;
+        if(o <= c)
+            cout << "YES\n";
+        else
+        {
+            cout << "NO\n";
+        }
+
+    }
+}

@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll a, b, c,d, k; cin >> a >> b >> c >> d >> k;
+    ll mn = abs(a - c) + abs(b - d);
+    if(k < mn)
+    {
+        cout << "NO\n";
+        
+    }
+    if(k == mn)
+    {
+        cout << "YES\n";
+        
+    }
+    if(k > mn)
+    {
+        ll o = abs(k - mn);
+        if(o % 2 ==0)
+        {
+            cout << "YES\n";
+            
+        }
+        else
+        {
+             cout << "NO\n";
+            
+        }
+    }
+    }
+}

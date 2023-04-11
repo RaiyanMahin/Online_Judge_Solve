@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n, k; cin >> n >> k; vector < ll > a(n , 0); ll k1 = k, k2 = k, sz = (ll)a.size();
+        ll s1 = 0, s2 = 0;
+        for(auto &i : a)
+            cin >> i;
+        sort(a.rbegin(), a.rend());
+        for(ll i = 0; i < sz and k1; i += 2)
+        {
+            if(k1)
+            {
+                s1 += a[i];
+                k1--;
+            }
+
+        }
+        for(ll i = 1; i < sz and k2; i += 2)
+        {
+            if(k2 > 1)
+            {
+                s2 += a[i];
+                k2--;
+            }
+            else if(k2 == 1)
+            {
+                s2 += a[i];
+                s2 += a[i + 1];
+                k2--;
+            }
+        }
+        cout << max(s1, s2) << endl;
+
+
+
+
+    }
+}

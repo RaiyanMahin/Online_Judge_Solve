@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+// sum = (sum + a[i] + MOD) % MOD;
+map < char, ll > mp;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        mp.clear();
+        string s; cin >> s; ll x = s.size();
+        for(auto i : s)
+            mp[i]++;
+        ll odd1 = 0, possible_ = 0, eve = 0;
+        for(auto i : mp)
+        {
+            ll v = i.second, V = i.first;
+            if(v % 2 == 0)
+            {
+                eve++;
+                possible_ += (v / 2);
+            }
+            else if(v == 1)
+            {
+                odd1++;
+            }
+            else if(v > 1 and v & 1)
+            {
+                possible_ += (v / 2) - 1;
+
+            }
+
+
+        }
+        if(possible_ >= odd1)
+            cout << "YES\n";
+        else
+            cout << "NO\n";
+    }
+
+}

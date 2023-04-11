@@ -1,0 +1,69 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+// sum = (sum + a[i] + MOD) % MOD;
+void baal()
+{
+    ll boo = 0;
+    ll n; cin >> n; vector < ll > a(n, 0); ll mx = -INT_MAX, mn = INT_MAX, mx_i = -1, mn_i = -1;
+        for(auto &i : a)
+        {
+            cin >> i;
+
+        }
+        for(ll i = 0; i < a.size(); i++)
+        {
+            if(a[i] > mx)
+            {
+                mx = a[i] ; mx_i = i;
+            }
+            if(a[i] < mn)
+            {
+                mn = a[i] ; mn_i = i;
+            }
+        }
+        if(mx == mn)
+        {
+            cout << "NO\n"; return;
+        }
+        vector < ll > b = a; sort(b.rbegin(), b.rend());
+        if(b == a)
+        {
+            cout << "NO\n"; return;
+
+        }
+        else
+        {
+            cout << "YES\n"; return;
+        }
+
+
+}
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        baal();
+
+
+
+
+
+
+
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+

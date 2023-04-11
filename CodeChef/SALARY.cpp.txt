@@ -1,0 +1,51 @@
+
+/*
+
+GREAT greedy prb..
+
+9 4 1.. min = 1, (9 - 1) + (4 - 1) + (1- 1) == 11
+iterations : 
+
+9 5 2
+9 6 3
+9 7 4
+9 8 5
+10 8 6
+11 8 7
+11 9 8
+11 10 9
+11 11 10
+11 12 11
+12 12 12
+
+total 11 steps
+
+
+
+*/
+
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+// sum = (sum + a[i] + MOD) % MOD;
+
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n; cin >> n; vector < ll > a(n, 0); ll mx = INT_MAX;
+        for(auto &i : a)
+        {
+            cin >> i; mx = min(mx, i);
+        }
+        ll s = 0;
+        for(ll i : a)
+            s += (i - mx);
+        cout << s << endl;
+
+    }
+}

@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        
+        ll n; cin >> n; ll s = 0, odd = 0, even = 0, N = n, g2 = 0;
+        while(n--)
+        {
+            ll i; cin >> i; s += i;
+            if(i % 2)
+            {
+                odd++;
+                
+            }
+            if(i % 2 == 0)
+            {
+                even++;
+                
+                if(i == 2)
+                    g2++;
+
+            }
+        }
+        if( (s % 2 == 0)  )
+            cout << "0\n";
+        if(s & 1)
+        {
+            if(g2)
+                cout << "1\n";
+            else
+                cout << "-1\n";
+        }
+
+
+
+    }
+}

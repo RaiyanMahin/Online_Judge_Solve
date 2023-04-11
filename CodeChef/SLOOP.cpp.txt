@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll a, b; cin >> a >> b;
+        cout << (a / b) << endl;
+        
+        
+        
+        
+    }
+}
+    

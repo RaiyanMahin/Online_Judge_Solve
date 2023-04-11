@@ -1,0 +1,53 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+// sum = (sum + a[i] + MOD) % MOD;
+map < ll, ll > mp;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        mp.clear();
+        ll SS = 0;
+        ll n ,w, wr; cin >> n >> w >> wr;
+        for(ll i = 1; i <= n; i++)
+        {
+            ll x; cin >> x; mp[x]++;
+            SS += x;
+
+
+        }
+        if(w <= wr)
+        {
+            cout << "YES\n";
+        }
+        if(w > wr)
+        {
+            ll lagbe =  ( w - wr );
+            for(auto i : mp)
+            {
+                ll v = i.second, V = i.first;
+                if(v & 1)
+                {
+                    v--;
+                }
+                ll jog = V * v;
+                lagbe -= jog;
+            }
+            if(lagbe <= 0)
+                cout << "YES\n";
+            else
+                cout << "NO\n";
+
+
+
+
+
+
+        }
+
+    }
+
+}

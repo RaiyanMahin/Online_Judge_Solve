@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n , m, a, b ,c ,d; cin >> n >> m >> a >> b >> c >> d;
+        ll co = ( n - a ) + (m - b), po = max(n - c, m - d);
+        if(po < co)
+        {
+            cout << "NO\n";
+        }
+        else
+        {
+            cout << "YES\n";
+        }
+       
+        
+
+    }
+}
+/*
+
+In simple terms, Since both the players are playing optimally, both of them will try to reach cell (N, M) whoever reaches the cell first, wins the game.
+
+Now the problem boils down to finding the smallest distance from both the points to cell (N, M)
+
+
