@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n ,m; cin >> n >> m; ll x, y; cin >> x >> y; string ans = "";
+        ll F = 0, P = 0;
+        while(n--)
+        {
+            F = 0, P = 0; ll got = 0;
+            string s; cin >> s;
+            for(char i : s)
+            {
+                if(i == 'F')
+                    F++;
+                else if(i == 'P')
+                    P++;
+            }
+            if( ( F >= x ) or  ( F == (x - 1) and (P >= y) ) )
+            {
+                ans += '1';
+            }
+            else
+            {
+                ans += '0';
+            }
+
+
+        }
+        cout << ans << endl;
+
+    }
+}

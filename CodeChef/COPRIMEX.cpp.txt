@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const ll N = 1e6 + 5;
+
+    vector<bool> vis(N,true);
+    void Sieve()
+    {
+    	for (ll i = 2; i*i < N; i ++)
+        {
+    		if (vis[i] == true)
+                    {
+                            for(ll j=i*i;j<N;j+=i)
+                                    vis[j] = false;
+    		}
+    	}
+            vis[1] = false;
+    }
+int main()
+{
+    Sieve();
+//    for(ll i = 1; i <= 10; i++)
+//        cout << vis[i];
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll a, b; cin >> a >> b;
+        for(ll i = b + 1; ;)
+        {
+            if(vis[i] == 1)
+            {
+                cout << i << endl;
+                break;
+
+            }
+            else if(vis[i] == 0)
+            {
+                i++;
+            }
+        }
+
+
+    }
+}

@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+       ll a[20] = {0};
+       for(ll i = 1; i <= 10; i++)
+       {
+           cin >> a[i];
+       }
+       ll k; cin >> k; ll s = 0;
+       for(ll i = 10; i >= 1; i--)
+       {
+          if(k >= a[i])
+          {
+              k -= a[i];
+          }
+          else if(k < a[i])
+          {
+              cout << i << endl;
+              break;
+          }
+
+       }
+
+
+    }
+}

@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define FIO ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL)
+int main()
+{
+    FIO;
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll n , k; cin >> n >> k; ll mx = 2 * (n - 1);
+        string s; cin >> s; ll c0 = 0, c1 = 0, sum = 0;
+        for(ll i = 0; i < (ll)s.size() - 1; i++)
+        {
+
+            if(s[i] == s[i + 1])
+            {
+                sum += 2;
+            }
+            else if(s[i] != s[i + 1])
+            {
+                sum++;
+            }
+
+        }
+        while(k--)
+        {
+            ll indx; cin >> indx; indx--;
+            char cur = s[indx], chn = cur;
+            if(cur == '0')
+            {
+                s[indx] = '1';
+            }
+            else if(cur == '1')
+            {
+                s[indx] = '0';
+            }
+
+
+
+                if(indx > 0)
+                {
+                    char age = s[indx - 1];
+                    if(age != chn)
+                    {
+                        sum++;
+
+
+                    }
+                    else if(age == chn)
+                    {
+                        sum--;
+                    }
+                }
+                if(indx != (n - 1))
+                {
+                    char age = s[indx + 1];
+                    if(age != chn)
+                    {
+                        sum++;
+
+                    }
+                    else if(age == chn)
+                    {
+                        sum--;
+                    }
+                }
+
+
+
+                cout << sum << endl;
+
+
+
+
+
+
+
+        }
+
+    }
+}

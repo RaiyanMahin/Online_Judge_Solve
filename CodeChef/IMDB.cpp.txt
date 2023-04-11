@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+vector < pair < ll, ll > > vp;
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+       // vp.clear();
+        ll mx = -1;
+        ll n, x; cin >> n >> x;
+        while(n--)
+        {
+            ll s, rate; cin >> s >> rate;
+            if(s <= x)
+            {
+                mx = max(mx , rate);
+                //vp.push_back({ s , rate } );
+            }
+
+
+        }
+        cout << mx << endl;
+//        for(auto i : vp)
+//        {
+//            if(mx == i.second)
+//            {
+//                cout << i.first << endl;
+//                break;
+//            }
+//        }
+    }
+}

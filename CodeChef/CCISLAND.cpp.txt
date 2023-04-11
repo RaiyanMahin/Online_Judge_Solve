@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+int main()
+{
+    ll t; cin >> t;
+    while(t--)
+    {
+        ll a, b, c, d, e; cin >> a >> b >> c >> d >> e;
+        c *= e, d *= e;
+        if(c > a or d > b)
+            cout << "NO\n";
+        else
+            cout << "YES\n";
+
+    }
+}
+// check vs code
+

@@ -1,0 +1,62 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ll toInt(string s){ll  sm ; stringstream ss(s); ss >> sm; return sm;}
+// sum = (sum + a[i] + MOD) % MOD;
+
+ll baal()
+{
+    ll boo = 0;
+        ll n; cin >> n;
+        for(ll i = 1; i <= n; i++)
+        {
+
+
+            string s; cin >> s; ll sm = 0, ca = 0, sz = (ll) s.size();
+            for(ll i = 0; i < (ll)s.size(); i++)
+            {
+                if(s[i] >= 97 and s[i] <= 109)
+                {
+                    sm++;
+                }
+                else if(s[i] >= 78 and s[i] <= 90)
+                {
+                    ca++;
+                }
+
+            }
+            if(sm == sz or ca == sz)
+            {
+                boo++;
+            }
+
+        }
+        if(boo == n)
+            return 1;
+        else
+            return -1;
+
+}
+int main()
+{
+    ll t; cin >> t;
+    ll tot = 0;
+    while(t--)
+    {
+        ll ans = baal();
+        if(ans == 1)
+            cout << "YES\n";
+        else
+        {
+            cout << "NO\n";
+        }
+
+
+
+
+
+
+
+
+    }
+}

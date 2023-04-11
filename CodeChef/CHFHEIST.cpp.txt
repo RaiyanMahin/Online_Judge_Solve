@@ -1,0 +1,50 @@
+// 15 pts
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+
+int main()
+{
+
+    ll t; scanf("%lld", &t);
+    while(t--)
+    {
+
+       ll d, D, a, b; scanf("%lld", &D); scanf("%lld", &d); scanf("%lld", &a); scanf("%lld", &b);
+       ll s = 0, i = 0, day = 0;
+       while(true)
+       {
+           if(day > D)
+           {
+               ll P = (day - D);
+               i--;
+               s -= P * (a + i * b);
+               //cout << " eta day " << day << endl;
+               break;
+           }
+           if(day <= D)
+           {
+               ll x = d * ( a + i * b);
+               //cout << " eta x " << x << endl;
+           s += x;
+           //cout << " eta s " << s << endl;
+           i++;
+           //cout << " eta i " << i << endl;
+           day += d;
+           //cout << " eta Day " << day << endl;
+           //d += d;
+           }
+       }
+       printf("%lld\n", s);
+
+
+
+
+
+
+    }
+}
+
+
