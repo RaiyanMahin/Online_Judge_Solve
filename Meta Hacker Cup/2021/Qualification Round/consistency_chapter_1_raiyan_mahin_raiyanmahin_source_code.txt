@@ -1,0 +1,112 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+#define debug(x) cerr << # x << ' ' << x << endl;
+
+set < char > st;
+map < char, ll > mp_vo ,mp_co;
+
+void baal()
+{
+    st.clear();  mp_vo.clear(); mp_co.clear();
+    string s; cin >> s; ll x = (ll)s.size();
+    for(char i : s)
+        st.insert(i);
+    if(st.size() == 1)
+    {
+        printf("0\n"); return;
+    }
+    string vowel = "", conso = "";
+    for(ll i = 0; i < x; i++)
+    {
+        if(s[i] == 'A' or s[i] == 'E' or s[i] == 'I' or s[i] == 'O' or s[i] == 'U')
+        {
+            vowel += s[i];
+        }
+        else
+        {
+            conso += s[i];
+        }
+    }
+    ll vow_s = (ll) vowel.size(), con_s = (ll) conso.size();
+    if(vow_s == 0 or con_s == 0)
+    {
+        printf("%lld\n", x); return;
+    }
+    else
+    {
+        ll mx_vo = 0, mx_co = 0;
+        for(ll i = 0; i < vow_s; i++)
+        {
+            mp_vo[ vowel[i] ]++;
+            mx_vo = max(mx_vo, mp_vo[ vowel[i] ]);
+        }
+        for(ll i = 0; i < con_s; i++)
+        {
+            mp_co[ conso[i] ]++;
+            mx_co = max(mx_co, mp_co[  conso[i] ]);
+        }
+        char MX_V = '1' , MX_C = '2';
+
+        for(auto i : mp_vo)
+        {
+            if(i.second == mx_vo)
+            {
+                MX_V = i.first; break;
+            }
+        }
+
+        for(auto i : mp_co)
+        {
+            if(i.second == mx_co)
+            {
+                MX_C = i.first; break;
+            }
+        }
+        /// first conso , vowel all change
+
+        ll pos_c = 0;
+
+        pos_c += vow_s;
+
+        for(ll i = 0; i < (ll) conso.size(); i++)
+        {
+            if(conso[i] != MX_C)
+            {
+                pos_c += 2;
+            }
+        }
+
+        ll pos_v = 0;
+
+        pos_v += con_s;
+
+        for(ll i = 0; i < (ll) vowel.size() ; i++)
+        {
+            if(vowel[i] != MX_V)
+            {
+                pos_v += 2;
+            }
+        }
+
+        printf("%lld\n", min(pos_c, pos_v));
+        return;
+
+    }
+
+}
+
+int main()
+{
+    ll t; scanf("%lld", &t); ll r = 1;
+    for(ll i = 1; i <= t; i++)
+    {
+
+        printf("Case #%lld: ", r++);
+        baal();
+
+
+
+    }
+}
+
