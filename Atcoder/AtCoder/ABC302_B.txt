@@ -1,0 +1,311 @@
+#include <bits/stdc++.h>
+using namespace std;
+//using namespace __gnu_pbds;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+
+using ll = long long ;
+using ld = long double;
+
+using ull = unsigned long long int;
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "Yes" << endl
+#define no cout << "No" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+
+
+char a[105][105];
+
+void soln()
+{
+    ll n, m; cin >> n >> m;
+    for(ll i = 1; i <= n; i++)
+    {
+        for(ll j = 1; j <= m; j++)
+        {
+            cin >> a[i][j];
+        }
+    }
+
+    string ans = "snuke";
+
+    for(ll i = 1; i <= n; i++)
+    {
+        for(ll j = 1; j <= m; j++)
+        {
+            // L to R
+
+            if( (j + 4)  <=  m)
+            {
+                
+                    string tmp = "";
+                    for(ll in = j; in <= j + 4; in++)
+                    {
+                        tmp += a[i][in];
+
+                    }
+                    if(tmp == ans)
+                    {
+                        for(ll in = j; in <= j + 4; in++)
+                        {
+                            cout << i << ' ' << in << nn;
+                        }
+                        return;
+                        
+                    }
+                
+
+            }
+
+            // R to L
+
+            if(j >= 5)
+            {
+                
+                    string tmp = "";
+                    for(ll in = j; in >= (j - 4); in--)
+                    {
+                        tmp += a[i][in];
+
+                    }
+                    //reverse(all(tmp));
+                    if(tmp == ans)
+                    {
+                        for(ll in = j; in >= (j - 4); in--)
+                        {
+                            cout << i << ' ' << in << nn;
+
+                        }
+                        return;
+                        
+                    }
+
+                
+            }
+
+            // U to D
+
+            if( (i + 4) <= n )
+            {
+                
+                    string tmp = "";
+                    for(ll in = i; in <= i + 4; in++)
+                    {
+                        tmp += a[in][j];
+
+                    }
+                    if(tmp == ans)
+                    {
+                        for(ll in = i; in <= i + 4; in++)
+                        {
+                            cout << in << ' ' << j << nn;
+                        }
+                        return;
+                        
+                    }
+                
+
+            }
+
+            // D to U
+
+            if(i >= 5)
+            {
+                
+                    string tmp = "";
+                    for(ll in = i; in >= (i - 4); in--)
+                    {
+                        tmp += a[in][j];
+
+                    }
+                   
+                    if(tmp == ans)
+                    {
+                        for(ll in = i; in >= (i - 4); in--)
+                        {
+                            cout << in << ' ' << j << nn;
+
+                        }
+                        return;
+                        
+                    }
+
+                
+            }
+
+
+            // diagonally
+
+            if( (i + 4 <= n) and (j + 4 <= m) )
+            {
+                    string tmp = "";
+                    ll ti = i, tj = j;
+
+                    ll oi = i + 4, oj = j + 4;
+
+                    for(; ti <= oi and tj <= oj; ti++, tj++)
+                    {
+                        tmp += a[ti][tj];
+                    } 
+
+                    
+                   
+                    if(tmp == ans)
+                    {
+                        ti = i, tj = j;
+                        for(; ti <= oi and tj <= oj; ti++, tj++)
+                        {
+                            cout << ti << ' ' << tj << nn;
+                        }
+
+
+                        
+                        return;
+                        
+                    }
+
+            }
+
+
+            if( (i - 4 >= 1) and (j - 4 >= 1) )
+            {
+               
+                    string tmp = "";
+                    ll ti = i, tj = j;
+
+                    ll oi = i - 4, oj = j - 4;
+
+                    for(; ti >= oi and tj >= oj   ; ti--, tj--)
+                    {
+                        tmp += a[ti][tj];
+                        //ti--; tj--;
+
+                       // cout << " now = " << a[ti][tj] << nn;
+                    } 
+
+                   // cout << " tt = " << tmp << nn;
+
+                    
+                   
+                    if(tmp == ans)
+                    {
+                        ti = i, tj = j;
+                        ll oi = i - 4, oj = j - 4;
+                        for(; ti >= oi and tj >= oj; ti--, tj--)
+                        {
+                            cout << ti << ' ' << tj << nn;
+                        }
+
+
+                        
+                        return;
+                        
+                    }
+
+            }
+
+            if( (i + 4 <= n) and (j - 4 >= 1) )
+            {
+                    string tmp = "";
+                    ll ti = i, tj = j;
+                    ll oi = i + 4, oj = j - 4;
+
+                    for(; ti <= oi and tj >= oj; ti++, tj--)
+                    {
+                        tmp += a[ti][tj];
+                    } 
+
+                    //ti = i, tj = j;
+                   
+                    if(tmp == ans)
+                    {
+                        ti = i, tj = j;
+                        ll oi = i + 4, oj = j - 4;
+                        for(; ti <= oi and tj >= oj; ti++, tj--)
+                        {
+                            cout << ti << ' ' << tj << nn;
+                        }
+
+
+                        
+                        return;
+                        
+                    }
+
+            }
+            if( (i - 4 >= 1) and (j + 4 <= m) )
+            {
+                    string tmp = "";
+                    ll ti = i, tj = j;
+                    ll oi = i - 4, oj = j + 4;
+
+                    for(; ti >= oi and tj <= oj; ti--, tj++)
+                    {
+                        tmp += a[ti][tj];
+                    } 
+
+                  //  ti = i, tj = j;
+                   
+                    if(tmp == ans)
+                    {
+                        ti = i, tj = j;
+                        for(; ti >= oi and tj <= oj; ti--, tj++)
+                        {
+                            cout << ti << ' ' << tj << nn;
+                        }
+
+
+                        
+                        return;
+                        
+                    }
+
+            }
+
+            
+
+
+
+
+
+
+        }
+    }
+
+}
+
+
+int main()
+{
+
+   //cout << 'k' - 'a';
+  ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+
+
+   
+        soln();
+}
