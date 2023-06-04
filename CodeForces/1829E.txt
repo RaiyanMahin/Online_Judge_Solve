@@ -1,0 +1,199 @@
+//#pragma GCC optimize("Ofast,fast-math,unroll-loops,O3")
+//#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2,fma")
+
+
+#include <bits/stdc++.h>
+using namespace std;
+//using namespace __gnu_pbds;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+
+using ll = int ;
+using ld = long double;
+
+using ull = unsigned long long int;
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+//using return = rr;
+
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+// typedefs
+
+typedef pair < ll ,ll > pll;
+typedef pair < ld, ld > pld;
+
+
+
+
+/*  DEBUG */
+
+#define debug(x) cerr << # x << ' ' << x << endl;
+
+/*     */
+
+
+
+ll fx[]={1, -1, 0, 0};
+ll fy[]={0, 0, 1, -1};
+int dx[]={0, 0, 1, -1, -1, 1, -1, 1}; // diagonals with
+int dy[]={-1, 1, 0, 0, 1, 1, -1, -1};
+
+
+
+
+
+const int op = 1001;
+ll a[op][op];
+
+ll vis[op][op];
+
+
+
+ll n, m;
+
+bool isvalid(ll x, ll y, ll n, ll m)
+{
+    if(x >= 1 and x <= n and y >= 1 and y <= m and a[x][y] > 0 and vis[x][y] == 0)
+    {
+        return true;
+    }
+    return false;
+}
+ll sum = 0;
+ll dfs(ll i, ll j)
+{
+    
+    vis[i][j] = 1;
+    sum += a[i][j];
+
+
+
+    for(ll in = 0; in <= 3; in++)
+    {
+        ll x = i + fx[in], y = j + fy[in];
+        if(isvalid(x, y, n , m))
+        {
+           
+            dfs(x, y);
+        }
+    }
+
+    return sum;
+}
+
+
+void baal()
+{
+    for(ll i = 1; i <= 1000; i++)
+    {
+        for(ll j = 1; j <= 1000; j++)
+        {
+           // a[i][j] = 0;
+            vis[i][j] = 0;
+        }
+    }
+
+   
+    n = 0, m = 0, sum = 0;
+
+     
+
+  cin >> n >> m;
+
+
+
+    
+
+    for(ll i = 1; i <= n; i++)
+    {
+        for(ll j = 1; j <= m; j++)
+        {
+            cin >> a[i][j];
+
+
+        }
+    }
+    
+    ll mx = 0;
+
+    for(ll i = 1; i <= n; i++)
+    {
+        for(ll j = 1; j <= m; j++)
+        {
+
+            if(a[i][j] and !vis[i][j])
+            {
+                sum = 0;
+                ll tmp = dfs(i, j);
+                mx = max(mx, tmp);
+               
+                
+                
+
+            }
+
+
+
+        }
+        
+    }
+
+    cout << mx << nn; return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+int main()
+{
+
+   //cout << 'k' - 'a';
+    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    
+    int t ; cin >> t;
+    while(t--) baal();
+}

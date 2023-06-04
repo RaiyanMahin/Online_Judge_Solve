@@ -1,0 +1,124 @@
+#include <bits/stdc++.h>
+using namespace std;
+//using namespace __gnu_pbds;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+
+using ll = long long ;
+using ld = long double;
+
+using ull = unsigned long long int;
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+//using return = rr;
+
+
+
+vector < ll > p;
+
+void baal()
+{
+    p.clear();
+    ll n; cin >> n; vector < ll > a(n, 0);
+   
+
+    for(ll &i : a)
+    {
+        cin >> i;
+        if(i <= 0)
+        {
+            
+            p.push_back(i);
+        }
+
+        
+    }
+    sort(all(p));
+
+    ll mn = 1e18;
+
+    for(ll i = 0; i < sz(p) - 1; i++)
+    {
+        mn = min(mn, abs(p[i + 1] - p[i]));
+    }
+
+    /*
+
+    er ag prjnto to bujsos e.
+
+    ekhn
+    minimum positive a[i] jeita
+    oita newa jbe jodi mn diff r cehe boro na hoi
+
+    if(a[i] > mn)
+
+    jdi mn diff r cehe boro hoi then,  main jei strange property
+    
+
+    abs(a[i] - a[j]) >= MAX ta maintain hbe na
+
+
+    */
+
+    for(ll i = 0; i < n; i++)
+    {
+        if(a[i] > 0 and a[i] <= mn)
+        {
+            p.push_back(a[i]); break;
+        }
+    }
+    
+
+    
+
+    cout << sz(p) << nn; return;
+
+
+    
+ 
+}
+
+
+
+
+
+
+
+
+int main()
+{
+
+   //cout << 'k' - 'a';
+    //ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+
+
+   ll t; cin >> t;
+   while(t--)
+        baal();
+}
