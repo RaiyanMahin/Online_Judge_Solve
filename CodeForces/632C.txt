@@ -1,0 +1,138 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+//using namespace __gnu_pbds;
+
+#define FIO ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+
+using ll = long long ;
+using ld = long double;
+
+using ull = unsigned long long int;
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+//using return = rr;
+
+
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+// typedefs
+
+typedef pair < ll ,ll > pll;
+typedef pair < ld, ld > pld;
+
+
+
+
+/*******************  ---------------      END OF TEMPLATE --------------      *************************/
+
+ll TEMPLATE()
+{
+    return 0;
+
+
+    /**
+    ll n; cin >> n; vector < ll > a(n , 0);
+    for(ll &i : a) cin >> i;
+
+
+    ll n; cin >> n; string s; cin >> s;
+
+    string s; cin >> s; ll n = sz(s);
+
+    cout << endl; return;
+
+    **/
+}
+
+bool sb(string &a, string &b)
+{
+    string a1 = a + b, a2 = b + a;
+
+    return (a1 < a2);
+}
+
+vector < string > vs;
+
+void soln()
+{
+
+    vs.clear();
+
+    ll n; cin >> n; string fft = "";
+
+   
+
+    for(ll i = 1; i <= n; i++)
+    {
+        string s; cin >> s;
+
+
+        vs.push_back(s);
+    }
+
+
+   
+
+    sort(all(vs), sb);
+
+    for(auto i : vs) fft += i;
+
+
+    cout << fft << nn; return;
+
+
+
+
+    return;
+
+
+
+
+
+
+
+
+
+
+}
+
+
+int main()
+{
+
+   //cout << 'k' - 'a';
+ //
+ ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+
+
+
+   ll t = 1; //cin >> t;
+   while(t--)
+        soln();
+}

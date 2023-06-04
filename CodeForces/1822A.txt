@@ -1,0 +1,102 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+using ll = long long ;
+
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+
+
+
+vector < pair < ll, pair < ll, ll > > > vp;
+
+void baal()
+{
+    vp.clear();
+
+    ll n, k; cin >> n >> k;
+
+    ll a[n + 1] = {};
+    ll b[n + 1] = {};
+
+
+    for(ll i = 0; i < n; i++)
+    {
+        cin >> a[i];
+        a[i] = a[i] + i;
+    }
+
+    for(ll i = 0; i < n; i++)
+    {
+        cin >> b[i];
+        
+    }
+
+    for(ll i = 0; i < n; i++)
+    {
+        vp.push_back({ b[i], {a[i], i}  });
+    }
+
+    RSort(vp);
+
+    ll got = -1;
+
+  
+    for(auto i : vp)
+    {
+
+        if(i.S.F <= k)
+        {
+            got = 1;
+            cout << i.S.S + 1 << nn; return;
+        }
+        
+    }
+
+  
+
+    cout << got << nn; return;
+
+
+    
+
+
+
+}
+
+
+int main()
+{
+
+   
+    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+   ll t; cin >> t;
+   while(t--)
+        baal();
+}

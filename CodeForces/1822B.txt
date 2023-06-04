@@ -1,0 +1,89 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+using ll = long long ;
+
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+
+vector < ll > pos, neg;
+ 
+void baal()
+{
+    pos.clear(); neg.clear();
+ 
+    ll n; cin >> n;
+    for(ll i = 0; i < n; i++)
+    {
+        ll x; cin >> x;
+        if(x >= 0 ) pos.push_back(x);
+        if(x < 0) neg.push_back(x);
+    }
+    sort(all(neg)); RSort(pos);
+ 
+    ll op1 = -1, op2 = 0;
+ 
+    ll nop = -1, npos = -1;
+ 
+ 
+    if(sz(pos) < 2 and sz(neg) < 2)
+    {
+        cout << pos[0] * neg[0] << nn; return;
+    }
+ 
+    if(sz(neg) >= 2)
+    {
+        nop = 1;
+         op1 = neg[0] * neg[1];
+        
+    }
+ 
+    if(sz(pos) >= 2)
+    {
+        op2 = pos[0] * pos[1];
+        
+    }
+   
+ 
+    cout << max(op1, op2) << nn; return;
+ 
+    
+ 
+}
+
+
+int main()
+{
+
+   
+    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+   ll t; cin >> t;
+   while(t--)
+        baal();
+}

@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+using ll = long long ;
+
+
+// Defines
+
+#define pf printf
+#define sf scanf
+#define F first
+#define S second
+#define gcd(a, b)  __gcd(a, b)
+#define lcm(a, b)  (a * b) / ( __gcd(a, b ) )
+#define pb emplace_back
+#define nn "\n"
+
+#define yes cout << "YES" << endl
+#define no cout << "NO" << endl
+#define p_case(r)  cout << "Case " << r++ << ": "
+#define all(a) a.begin(), a.end()
+#define Sort sort(a.begin(), a.end())
+#define Rev_sort(a) reverse(a.begin(), a.end())
+#define RSort(a) sort(a.rbegin(), a.rend()) // sort by descending
+#define mem(a, b) memset(a, b, sizeof(a) )
+#define acum(a , init_value) accumulate(all(a),init_value) // 0LL
+#define setpre(x) cout << fixed << setprecision(x)
+#define loop(i, b, n) for(ll i = b; i <= n; i++)
+#define rev_loop(i, b, n) for(ll i = b; i >= n; i--)
+#define odd(n) ((n)&1)
+#define even(n) (!((n)&1))
+#define sz(x) (ll)x.size()
+
+
+ 
+void baal()
+{
+      ll n; cin >> n;
+    if(n == 1)
+    {
+        cout << "1\n"; return;
+    }
+    if(odd(n))
+    {
+        cout << "-1\n"; return;
+    }
+    if(even(n))
+    {
+        ll i = 1, j = n;
+
+        for(; i > 0 and j > 0; i += 2, j -= 2)
+        {
+            cout << j << ' ' << i << ' ';
+        }
+
+        //cout << j << ' ' << i << ' ';
+                
+                
+        cout << nn; return;
+    }
+    
+    
+ 
+}
+
+
+int main()
+{
+
+   
+    ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+   ll t; cin >> t;
+   while(t--)
+        baal();
+}

@@ -1,0 +1,87 @@
+// just for check for unordered_map is shit
+// replace unorderd_map to map
+
+
+
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp> 
+#include <ext/pb_ds/detail/standard_policies.hpp>
+using namespace __gnu_pbds;
+using namespace std;
+#define getbit(n, i) (((n) & (1LL << (i))) != 0) 
+#define setbit0(n, i) ((n) & (~(1LL << (i)))) 
+#define setbit1(n, i) ((n) | (1LL << (i))) 
+#define togglebit(n, i) ((n) ^ (1LL << (i))) 
+#define lastone(n) ((n) & (-(n))) 
+char gap = 32;
+#define int long long
+#define ll long long 
+#define lll __int128_t
+#define pb push_back
+typedef tree<
+int,
+null_type,
+less<int>,
+rb_tree_tag,
+tree_order_statistics_node_update>
+ordered_set;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+ll hashPrime = 1610612741;
+void solve() {
+    int n, k;
+    cin >> n >> k;
+    int a[n + 1];
+    map<int, int> mp1;
+    for(int i = 1; i <= n; i++) cin >> a[i], mp1[a[i]]++;
+    set<int> st;
+    for(int i = 1; i <= n; i++) st.insert(a[i]);
+    vector<int> calc;
+    for(auto x: st) calc.push_back(x);
+    int sz = calc.size();
+    int maxans = 0;
+    int l = -1, r = -1;
+    for(int i = 0; i < sz; ) {
+        int j = i;
+        int prev = -1;
+        int nxt = -1;
+        for(; j < sz; j++) {
+            if(mp1[calc[j]] < k) {
+                nxt = j + 1;
+                break;
+            }
+            if(prev != -1) {
+                if(calc[j] != prev + 1) {
+                    nxt = j;
+                    break;
+                }
+            }
+            prev = calc[j];
+        }
+        if(j - i > maxans) {
+            l = calc[i];
+            r = calc[j - 1];
+            maxans = j - i;
+        }
+        if(nxt == -1) i = sz;
+        else i = nxt;
+    }
+    if(l == -1) {
+        cout << "-1\n";
+    }
+    else {
+        cout << l << " " << r << "\n";
+    }
+}
+signed main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while(t--) {
+        solve();
+    }
+    return 0;
+}
