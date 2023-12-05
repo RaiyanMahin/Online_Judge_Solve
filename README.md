@@ -1,7 +1,3 @@
-# TO BE UPDATED
-
-
-#spoj, hackerrank, hackerearth, lightoj, uva 
-#file add baki
-
-#CSES file add krbo  MUST folder wise 31 10 23
+This repository contains most of my solutions of different algorithmic problems in different platforms.
+My handles can be found in this repo 
+[Handles Repo link](https://github.com/RaiyanMahin/ProblemSolvingStats)
